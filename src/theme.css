@@ -1,0 +1,174 @@
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+.light-theme {
+  background-color: white;
+  /* --bg-color: #f3f3f3; */
+  /* --text-color: white; */
+}
+/* 
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s;
+} */
+
+.light-theme .sidebar {
+  background-color: #ffffff;
+  border-right: 1px solid #dbe3f0;
+  color: #1e293b;
+}
+
+.light-theme .sidebar h1:first-of-type {
+  color: #0f172a;
+}
+
+.light-theme .sidebar-list {
+  color: #334155;
+}
+
+.light-theme .sidebar-list li:hover {
+  background-color: #e0edff;
+  color: #2563eb;
+}
+
+.light-theme .main-page {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.light-theme .main-header-input {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+
+.light-theme .main-header-input::placeholder {
+  color: #64748b;
+}
+
+.light-theme .header-currency-selector {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+
+.light-theme .first-section h2:first-of-type {
+  color: #0f172a;
+}
+
+.light-theme .first-section p:first-of-type {
+  color: #64748b;
+}
+
+.light-theme .section-market {
+  background-color: #ffffff;
+  border: 1px solid #dbe3f0;
+  color: #1e293b;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* SECOND SECTION */
+
+.light-theme .top-cryptocurrencies-section {
+  background-color: #ffffff;
+  border: 1px solid #dbe3f0;
+}
+
+.light-theme .cryptocurrencies-section-header {
+  color: #0f172a;
+}
+
+.light-theme .second-section-nav button,
+.light-theme .cryptocurrencies-section-header button,
+.light-theme .lower-cryptocurencies-section div:first-of-type button {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.light-theme .second-section-nav button:hover,
+.light-theme .cryptocurrencies-section-header button:hover,
+.light-theme .lower-cryptocurencies-section div:first-of-type button:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.light-theme .table-container {
+  background: #ffffff;
+  border: 1px solid #dbe3f0;
+}
+
+.light-theme .table-container thead {
+  color: #64748b;
+}
+
+.light-theme .table-container td {
+  border-top: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.light-theme .table-container tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.light-theme .crypto-name-logo h3 {
+  color: #0f172a;
+}
+
+.light-theme .crypto-name-logo h3 span {
+  color: #64748b;
+}
+
+/* RIGHT PAGE SECTION */
+
+.light-theme .right-crypto-display-section {
+  background-color: #ffffff;
+  border: 1px solid #dbe3f0;
+}
+
+.light-theme .coin-name {
+  color: #0f172a;
+}
+
+.light-theme .coin-name span {
+  color: #64748b;
+}
+
+.light-theme .price-rate-display h1 {
+  color: #0f172a;
+}
+
+.light-theme .price-rate-display p {
+  color: #475569;
+}
+
+.light-theme .display-section-nav-btn button {
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.light-theme .display-section-nav-btn button:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.light-theme .coin-detail-list {
+  color: #1e293b;
+}
+
+.light-theme .coin-details-each {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.light-theme .coin-details-each span:first-child {
+  color: #64748b;
+}
+
+.light-theme .coin-details-each span:last-child {
+  color: #0f172a;
+  font-weight: 500;
+}

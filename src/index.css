@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 20px 30px;
+  background-color: rgb(13, 13, 32);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  border-right: 1px solid rgb(76, 72, 116);
+  padding: 20px;
+  /* position: static; */
+}
+.sidebar h1:first-of-type {
+  font-size: 30px;
+}
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+  margin: 40px 0;
+  font-size: 19px;
+  font-weight: 500;
+}
+.sidebar-list li:hover {
+  background-color: rgb(0, 56, 177);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.page-activeness {
+  background-color: rgb(31, 118, 177);
+  border-radius: 10px;
+  padding: 10px 5px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.main-page {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  align-items: center;
+}
+.main-header-input {
+  padding: 12px 10px;
+  width: 30rem;
+  background-color: rgb(29, 29, 59);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid white;
+  font-size: 15px;
+}
+.main-header-right-side {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.header-currency-selector {
+  width: 5rem;
+  padding: 8px 10px;
+  border-radius: 30px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.first-section h2:first-of-type {
+  font-size: 25px;
+}
+.first-section p:first-of-type {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.first-section-market-display {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.section-market {
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.section-market div {
+  margin-top: 15px;
+}
+
+/* SECOND SECTION */
+
+.second-section {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+.top-cryptocurrencies-section {
+  border: 1px solid white;
+  border-radius: 15px;
+}
+.cryptocurrencies-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+}
+/* .cryptocurrencies-section-header button {
+  padding: 7px 20px;
+} */
+.second-section-nav {
+  margin-top: 10px;
+  display: flex;
+  gap: 30px;
+  padding-left: 25px;
+}
+.second-section-nav button,
+.cryptocurrencies-section-header button,
+.lower-cryptocurencies-section div:first-of-type button {
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid wheat;
+}
+
+.table-container {
+  background: #131c31;
+  border-radius: 15px;
+  overflow-x: auto;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container thead {
+  color: #94a3b8;
+}
+.table-container tbody {
+  cursor: pointer;
+}
+.table-container th {
+  text-align: left;
+  padding: 20px;
+  font-size: 14px;
+}
+.table-container td {
+  padding: 20px;
+  border-top: 2px solid #1e293b;
+}
+.crypto-name-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.crypto-name-logo h3 span {
+  font-size: 10px;
+}
+.crypto-image-box {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 1px;
+}
+.crypto-name-logo img {
+  width: 20%;
+  object-fit: contain;
+}
+
+.lower-cryptocurencies-section {
+  margin-top: 20px;
+}
+.lower-cryptocurencies-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.news-box {
+  display: flex;
+}
+
+/* RIGHT PAGE SECTION */
+
+.right-crypto-display-section {
+  width: 450px;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 20px 25px;
+}
+.right-crypto-display-section-header {
+  display: flex;
+  justify-content: space-between;
+}
+.coin-name {
+  font-size: 14px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.coin-name img {
+  width: 20%;
+}
+.coin-name span {
+  font-size: 16px;
+}
+.price-rate-display {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+}
+.price-rate-display h1 {
+  font-size: 20px;
+}
+.display-section-nav-btn {
+  /* width: 100%; */
+  display: flex;
+  gap: 23px;
+  align-self: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.display-section-nav-btn button {
+  padding: 2px 12px;
+  border-radius: 39x;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.coin-detail-list {
+  margin-top: 30px;
+}
+.coin-details-each {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 17px;
+  padding-top: 8px;
+  border-bottom: 1px solid white;
+}
