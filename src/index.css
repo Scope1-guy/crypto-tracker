@@ -101,7 +101,8 @@ input:checked + .slider::before {
   transform: translateX(26px);
 }
 
-.main-page {
+.main-page,
+.coin-page {
   flex: 1;
   padding: 30px;
   margin-left: 250px;

@@ -60,6 +60,8 @@ function CurrentPage({
   selectedCoin,
   setSelectedCoin,
 }) {
+  console.log(activePage);
+
   if (activePage === "Dashboard") {
     return (
       <MainPage
@@ -70,7 +72,7 @@ function CurrentPage({
     );
   }
 
-  if (activePage === "Coinpage") {
+  if (activePage === "CoinPage") {
     return <CoinPage />;
   }
 }
@@ -121,8 +123,9 @@ function Sidebar({ sideBarItems, activePage, setActivePage }) {
           <li
             key={item}
             onClick={() => {
+              // console.log("Clicked:", item);
               setActivePage(item);
-              console.log(item);
+              // console.log(item);
             }}
             className={activePage === item ? "page-activeness" : ""}
           >
