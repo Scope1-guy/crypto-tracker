@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { firstSectionMarketDisplay } from "./crypro-info";
+import CoinPage from "./pages/coins";
 
 export default function App() {
   const sideBarItems = [
     "Dashboard",
-    "Coins",
+    "CoinPage",
     "Watchlist",
     "Portfolio",
     "News",
@@ -43,13 +44,35 @@ export default function App() {
         activePage={activePage}
         setActivePage={setActivePage}
       />
-      <MainPage
+      <CurrentPage
+        activePage={activePage}
         cryptoCoins={cryptoCoins}
         selectedCoin={selectedCoin}
         setSelectedCoin={setSelectedCoin}
       />
     </div>
   );
+}
+
+function CurrentPage({
+  activePage,
+  cryptoCoins,
+  selectedCoin,
+  setSelectedCoin,
+}) {
+  if (activePage === "Dashboard") {
+    return (
+      <MainPage
+        cryptoCoins={cryptoCoins}
+        selectedCoin={selectedCoin}
+        setSelectedCoin={setSelectedCoin}
+      />
+    );
+  }
+
+  if (activePage === "Coinpage") {
+    return <CoinPage />;
+  }
 }
 
 function formatNumber(num) {
@@ -99,6 +122,7 @@ function Sidebar({ sideBarItems, activePage, setActivePage }) {
             key={item}
             onClick={() => {
               setActivePage(item);
+              console.log(item);
             }}
             className={activePage === item ? "page-activeness" : ""}
           >
