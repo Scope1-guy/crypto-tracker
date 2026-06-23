@@ -36,6 +36,8 @@ function formatNumber(num) {
 export default function App() {
   return (
     <AuthProvider>
+      {/* {AuthProvider is a custom component to manage authentication state basically to know who
+      is logged in, if the user has login or not current user info etc} */}
       <AppContent />
     </AuthProvider>
   );
@@ -69,6 +71,7 @@ function Dashboard() {
     "Settings",
   ];
 
+  const [watchlistSelected, setWatchListSelected] = useState([]);
   const [activePage, setActivePage] = useState("Dashboard");
   const [cryptoCoins, setCryptoCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState(null);
@@ -101,6 +104,8 @@ function Dashboard() {
         cryptoCoins={cryptoCoins}
         selectedCoin={selectedCoin}
         setSelectedCoin={setSelectedCoin}
+        watchlistSelected={watchlistSelected}
+        setWatchListSelected={setWatchListSelected}
       />
     </div>
   );
@@ -112,6 +117,8 @@ function CurrentPage({
   cryptoCoins,
   selectedCoin,
   setSelectedCoin,
+  watchlistSelected,
+  setWatchListSelected,
 }) {
   const pageMap = {
     Dashboard: (
@@ -119,6 +126,8 @@ function CurrentPage({
         cryptoCoins={cryptoCoins}
         selectedCoin={selectedCoin}
         setSelectedCoin={setSelectedCoin}
+        watchlistSelected={watchlistSelected}
+        setWatchListSelected={setWatchListSelected}
       />
     ),
     CoinPage: <CoinPage />,
@@ -208,7 +217,13 @@ function Sidebar({ sideBarItems, activePage, setActivePage }) {
 }
 
 // ─── Main / Dashboard page ────────────────────────────────────────────────────
-function MainPage({ selectedCoin, setSelectedCoin, cryptoCoins }) {
+function MainPage({
+  selectedCoin,
+  setSelectedCoin,
+  cryptoCoins,
+  watchlistSelected,
+  setWatchListSelected,
+}) {
   return (
     <div className="main-page">
       <Header />
@@ -221,6 +236,8 @@ function MainPage({ selectedCoin, setSelectedCoin, cryptoCoins }) {
         selectedCoin={selectedCoin}
         setSelectedCoin={setSelectedCoin}
         cryptoCoins={cryptoCoins}
+        watchlistSelected={watchlistSelected}
+        setWatchListSelected={setWatchListSelected}
       />
     </div>
   );
@@ -313,13 +330,21 @@ function FirstSection({ cryptoCoins }) {
   );
 }
 
-function SecondSection({ selectedCoin, setSelectedCoin, cryptoCoins }) {
+function SecondSection({
+  selectedCoin,
+  setSelectedCoin,
+  cryptoCoins,
+  watchlistSelected,
+  setWatchListSelected,
+}) {
   return (
     <div className="second-section">
       <div>
         <TopCryptocurrenciesSection
           cryptoCoins={cryptoCoins}
           setSelectedCoin={setSelectedCoin}
+          watchlistSelected={watchlistSelected}
+          setWatchListSelected={setWatchListSelected}
         />
         <LowerCryptocurrenciesSection />
       </div>
@@ -330,7 +355,12 @@ function SecondSection({ selectedCoin, setSelectedCoin, cryptoCoins }) {
   );
 }
 
-function TopCryptocurrenciesSection({ cryptoCoins, setSelectedCoin }) {
+function TopCryptocurrenciesSection({
+  cryptoCoins,
+  setSelectedCoin,
+  watchlistSelected,
+  setWatchListSelected,
+}) {
   return (
     <div className="top-cryptocurrencies-section">
       <header className="cryptocurrencies-section-header">
@@ -349,12 +379,19 @@ function TopCryptocurrenciesSection({ cryptoCoins, setSelectedCoin }) {
       <CryptocurrenciesTable
         cryptoCoins={cryptoCoins}
         setSelectedCoin={setSelectedCoin}
+        watchlistSelected={watchlistSelected}
+        setWatchListSelected={setWatchListSelected}
       />
     </div>
   );
 }
 
-function CryptocurrenciesTable({ cryptoCoins, setSelectedCoin }) {
+function CryptocurrenciesTable({
+  cryptoCoins,
+  setSelectedCoin,
+  watchlistSelected,
+  setWatchListSelected,
+}) {
   return (
     <div className="table-container">
       <table>
@@ -393,6 +430,8 @@ function CryptocurrenciesTable({ cryptoCoins, setSelectedCoin }) {
                 <td
                   className="star-cell"
                   onClick={(e) => {
+                    setWatchListSelected(detail);
+                    console.log(watchlistSelected);
                     e.stopPropagation();
                     alert(`${detail.name} added to watchlist!`);
                   }}
